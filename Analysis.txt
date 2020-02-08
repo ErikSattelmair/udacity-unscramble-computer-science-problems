@@ -1,0 +1,32 @@
+This file contains the run time analysis for each task contained in the submission.
+To complete each task, a calls.csv and/or texts.csv, provided by Udacity, had to be load into the code. Each file can be regarded as the input, the run time of the code (may) depend on. Other operations like declaring variables and assigning values to them, adding values to collections, etc. are ignored in the analysis.
+
+
+Task0:
+To complete this task, the first dataset of the "texts" file and last dataset of the "calls" file has to be extracted and printed out.
+Since both operations, getting the first and last record of each file respectively, are possible by indexing, the run time complexity of the code can be described as O(1).
+
+
+Task1:
+The goal of this task is to find every distinct phone number in each file. To achieve that, the recordsets has to be iterated, every recordset queried for the number of the sender/caller and receiver/callee and added to the result set. To avoid existence checks, a set is used.
+
+Since both files have to be iterated over, the complexity of the code can be determined by O(2n).
+
+
+Task2:
+The question of this task is, who (which number) spent the most time on the phone. To calculate that, only the "calls" file has to be examined. For that reason, every record of the file is iterated over, the caller, callee and duration are extracted and, if not present already, caller's and/or callee's number added as key to a temporary dictionary with the duration as its value. If the number is present already, the duration is added to the value of the numbers dictionary entry. At the end, the max value of every dictionaries entry is calculated. 
+
+Since the code iterates over the "calls" file once, the time complexity can be described by O(n).
+
+
+Task 3:
+
+
+Task 4:
+The goal of this task is to get a list of all possible telemarketers numbers. A telemarketer is considered a number that start with 140 and only calls another number while not receiving calls/texts or writing texts.
+
+To complete the task, first the "calls" file is iterated over and every caller's number starting with 140 is added to a set (to avoid duplicates). In the same iteration, if a callee's number starts with 140, that callee's number is removed from the set. 
+
+After that, the "texts" is iterated over too and if the sender's and/or receiver's number start with 140, they are removed from the set also.
+
+At the end, the set is converted to a list, sorted and printed out
