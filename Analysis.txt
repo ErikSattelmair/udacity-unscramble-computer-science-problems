@@ -20,13 +20,28 @@ Since the code iterates over the "calls" file once, the time complexity can be d
 
 
 Task 3:
+Task 3 is devided in two parts. Part one is about finding all of the area codes and mobile prefixes called by people in
+Bangalore. And the second part is about calculating the percentage of calls from fixed lines in Bangalore that are made
+to fixed lines also in Bangalore.
+
+For completion of the task, it is necessary to iterate over the "calls" file only.
+In each iteration, the number of fixed line calls from and two Bangalore are counted (for part B of the task) and area
+codes are extracted and collected in a set (part one, set is used to avoid duplicates).
+
+After the iterations, at first the set is converted to a list, sorted and the results are printed out. (Part one)
+Finally the ratio of fixed line calls from Bangalore to Bangalore is calculated and printed.
+
+The runtime complexity can be determined as O(n)
 
 
 Task 4:
-The goal of this task is to get a list of all possible telemarketers numbers. A telemarketer is considered a number that start with 140 and only calls another number while not receiving calls/texts or writing texts.
+The goal of this task is to get a list of all possible telemarketers numbers. A telemarketer is considered a number that
+only calls another number while not receiving calls/texts or writing texts.
 
-To complete the task, first the "calls" file is iterated over and every caller's number starting with 140 is added to a set (to avoid duplicates). In the same iteration, if a callee's number starts with 140, that callee's number is removed from the set. 
+To complete the task, first the "calls" file is iterated over and every caller's number is added to a set (to avoid duplicates).
+In the a next step, the calls are reiterated and every callee's number is removed from the set, if present.
 
-After that, the "texts" is iterated over too and if the sender's and/or receiver's number start with 140, they are removed from the set also.
+After that, the "texts" is iterated over as well and every sender's and receiver's number is removed from the set too, if present.
+At the end, the set is converted to a list, sorted and printed out.
 
-At the end, the set is converted to a list, sorted and printed out
+The complexity of the algorithm can be described by O(3n), which is simplified to O(n).

@@ -14,7 +14,7 @@ with open('calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
     last_data_set = calls[-1]
-    print("Last record of calls, " + str(last_data_set[0]) + " calls " + str(last_data_set[1]) + " at time " + str(last_data_set[2]) + " 	lasting " + str(last_data_set[3]) + " seconds")
+    print("Last record of calls, " + str(last_data_set[0]) + " calls " + str(last_data_set[1]) + " at time " + str(last_data_set[2]) + " lasting " + str(last_data_set[3]) + " seconds")
         
 """
 TASK 0:

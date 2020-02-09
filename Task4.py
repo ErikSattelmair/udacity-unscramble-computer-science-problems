@@ -4,7 +4,6 @@ It's ok if you don't understand how to read files.
 """
 import csv
 
-telemarketer_prefix = "140"
 possible_telemarketers = set()
 
 with open('calls.csv', 'r') as f:
@@ -12,15 +11,13 @@ with open('calls.csv', 'r') as f:
     calls = list(reader)
     
     for call in calls:
-        caller = str(call[0])
+        possible_telemarketers.add(str(call[0]))
+    
+    for call in calls:
         callee = str(call[1])
         
-        if(caller.startswith(telemarketer_prefix)):
-            possible_telemarketers.add(caller)
-            
-        if(callee.startswith(telemarketer_prefix)):
-            if(callee in possible_telemarketers):
-                possible_telemarketers.remove(callee)
+        if(callee in calls):
+            possible_telemarketers.remove(callee)
     
 with open('texts.csv', 'r') as f:
     reader = csv.reader(f)
@@ -30,12 +27,11 @@ with open('texts.csv', 'r') as f:
         sender = str(text[0])
         receiver = str(text[1])
         
-        if(sender.startswith(telemarketer_prefix) or receiver.startswith(telemarketer_prefix)):
-            if(sender in possible_telemarketers):
-                possible_telemarketers.remove(sender)
-                
-            if(receiver in possible_telemarketers):
-                   possible_telemarketers.remove(receiver)
+        if(sender in possible_telemarketers):
+            possible_telemarketers.remove(sender)
+            
+        if(receiver in possible_telemarketers):
+            possible_telemarketers.remove(receiver)
 
 sorted_possible_telemarketers = list(possible_telemarketers)
 sorted_possible_telemarketers.sort()
@@ -55,4 +51,6 @@ Print a message:
 <list of numbers>
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
+
+
 
