@@ -31,7 +31,7 @@ codes are extracted and collected in a set (part one, set is used to avoid dupli
 After the iterations, at first the set is converted to a list, sorted and the results are printed out. (Part one)
 Finally the ratio of fixed line calls from Bangalore to Bangalore is calculated and printed.
 
-The runtime complexity can be determined as O(n)
+The runtime complexity can be determined as O(n) for iterating over the data sets + O(n log n) for sorting the result list
 
 
 Task 4:
@@ -44,4 +44,5 @@ In the a next step, the calls are reiterated and every callee's number is remove
 After that, the "texts" is iterated over as well and every sender's and receiver's number is removed from the set too, if present.
 At the end, the set is converted to a list, sorted and printed out.
 
-The complexity of the algorithm can be described by O(3n), which is simplified to O(n).
+The complexity of the algorithm for computing the list of possible telemarketers can be described by O(3n), which is simplified to O(n),
+plus O(n log n) for sorting the resulting list.
