@@ -4,6 +4,7 @@ It's ok if you don't understand how to read files.
 """
 import csv
 
+prefix_telemarketers = "140"
 possible_telemarketers = set()
 
 with open('calls.csv', 'r') as f:
@@ -11,7 +12,10 @@ with open('calls.csv', 'r') as f:
     calls = list(reader)
     
     for call in calls:
-        possible_telemarketers.add(str(call[0]))
+        callee = str(call[0])
+
+        if not callee.startswith(prefix_telemarketers):
+            possible_telemarketers.add(callee)
     
     for call in calls:
         callee = str(call[1])
